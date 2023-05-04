@@ -8,7 +8,7 @@ const MobileNavbar = ({ pages, showMobNav }) => {
   return (
     <nav
       className={`${
-        showMobNav ? "translate-y-0" : "-translate-y-72"
+        showMobNav ? "translate-y-0" : " -translate-y-96"
       } absolute w-full duration-500 flex flex-col ${mode ? "bg-darkMode": "bg-lightMode"}`}
     >
       {pages.map(({ id, text, path }) => (

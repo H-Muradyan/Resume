@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { currentWeather } from "../../api/weather";
+import { toast } from "react-toastify";
 
 const useWeather = () => {
   const dispatch = useDispatch();
 
   const getCurrentWeather = async (city) => {
-    console.log(city)
     try {
       const res = await currentWeather(city);
       if (res.data) {
@@ -16,7 +16,7 @@ const useWeather = () => {
         });
       }
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data.message);
     }
   };
 
@@ -25,7 +25,7 @@ const useWeather = () => {
     const utcMilliseconds = utcSeconds * 1000;
     const localDate = new Date(utcMilliseconds).toUTCString();
     return localDate;
-  }
+  };
 
   return { getCurrentWeather, getDate };
 };
