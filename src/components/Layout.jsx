@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   const mode = useSelector((data) => data.mode);
   
   return (
-    <div className={`asd ${mode ? "text-white" : "text-black"} `}>
+    <div className={`${mode ? "text-white" : "text-black"} `}>
       <Header />
       <main className="grid gap-x-4 grid-cols-4 md:grid-cols-8 lg:grid-cols-12 max-w-screen-2xl m-auto mt-10 px-6 md:px-10 lg:px-20">
         <div className="col-span-4 md:col-span-3">

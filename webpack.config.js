@@ -1,15 +1,23 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new Dotenv({
+      path: "./.env",
+      safe: true, // load .env.example instead of .env if file exists
+      systemvars: true, // load all system variables
+      silent: true, // suppress warnings and errors
+      defaults: true, // load '.env.defaults' as the default values if .env file is not found
     }),
   ],
 

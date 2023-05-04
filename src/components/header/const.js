@@ -19,4 +19,9 @@ export const pages = [
     text: "Contact",
     path: "/contact",
   },
+  {
+    id: 4,
+    text: "Weather",
+    path: "/weather",
+  },
 ];

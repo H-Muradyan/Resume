@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
+import Weather from "./pages/Weather";
 
 
 
@@ -17,8 +18,8 @@ const App = () => {
         <Route path="/projects" element={<Projects />}></Route>
         <Route path="/skills" element={<Skills />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/weather" element={<Weather />}></Route>
       </Routes>
-
     </Layout>
   );
 };
