@@ -18,6 +18,7 @@ const MobileNavbar = ({ pages, showMobNav }) => {
           display="flex"
           to={path}
           key={id}
+          aria-label={text}
         >
           {text}
         </Link>

@@ -2,7 +2,7 @@ import React from "react";
 import { icons } from "../const";
 import useWeather from "../../redux/actions/useWeather";
 
-const Info = ({weather}) => {
+const Info = ({ weather }) => {
   const { getDate } = useWeather();
 
   return (

@@ -30,8 +30,10 @@ const WeatherForm = () => {
         name="location"
         errorMessage={errorMessage}
       />
-      <button type="submit">
-        <LocationSearchingIcon fontSize="large"/>
+      <button aria-label="search city" type="submit">
+        <span>
+          <LocationSearchingIcon fontSize="large" />
+        </span>
       </button>
     </form>
   );

@@ -15,6 +15,7 @@ const Navbar = ({ pages, mode }) => {
           } after:h-1 after:w-0 after:left-0 after:-bottom-2 hover:after:w-full`}
           to={path}
           key={id}
+          aria-label={text}
         >
           {text}
         </Link>

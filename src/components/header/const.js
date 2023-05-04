@@ -24,4 +24,9 @@ export const pages = [
     text: "Weather",
     path: "/weather",
   },
+  {
+    id: 5,
+    text: "Repositories",
+    path: "/repositories",
+  },
 ];

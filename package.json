@@ -26,6 +26,7 @@
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.1",
     "image-webpack-loader": "^8.1.0",
+    "moment": "^2.29.4",
     "postcss": "^8.4.23",
     "postcss-loader": "^7.2.4",
     "postcss-preset-env": "^8.3.2",

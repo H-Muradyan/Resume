@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Weather from "./pages/Weather";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Repositories from "./pages/Repositories";
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/skills" element={<Skills />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/weather" element={<Weather />}></Route>
+        <Route path="/repositories" element={<Repositories />}></Route>
       </Routes>
     </Layout>
   );
