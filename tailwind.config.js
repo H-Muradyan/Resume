@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         darkMode: "rgba(14, 14, 14, 0.5)",
         lightMode: "rgba(250, 250, 250, 0.6)",
+        lightModeWeather: "rgba(250, 250, 250, 0.2)",
       },
       backgroundImage: {
         "hero-pattern":

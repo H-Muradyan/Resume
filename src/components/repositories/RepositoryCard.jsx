@@ -15,7 +15,7 @@ const RepositoryCard = ({ repository }) => {
           src={repository.owner.avatar_url}
           alt="as"
         />
-        <h6 className="text-xl font-semibold">{repository.owner.login}</h6>
+        <p className="text-xl font-semibold">{repository.owner.login}</p>
       </div>
       <p className="text-lg text-center font-medium my-5">{repository.name}</p>
       <div className="space-y-4 text-sm mb-4">
