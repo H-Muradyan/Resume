@@ -5,7 +5,7 @@ const Navbar = ({ pages, mode }) => {
   const { pathname } = useLocation();
 
   return (
-    <nav className="space-x-8">
+    <nav className="space-x-5 lg:space-x-8">
       {pages.map(({ id, text, path }) => (
         <Link
           className={`${

@@ -7,7 +7,7 @@ const Social = () => {
   const mode = useSelector((data) => data.mode);
 
   return (
-    <div className="space-x-3 md:space-x-5 text-center">
+    <div className="space-x-3 md:space-x-2 lg:space-x-5 text-center">
       {socialPages.length &&
         socialPages.map(({ id, icon, title, link }) => (
           <Link

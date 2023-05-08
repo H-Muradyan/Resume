@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import Header from "./header";
 import Profile from "./profile";
 import { useSelector } from "react-redux";
-
+import useResizeObserver from "./hooks/useResizeObserver";
 
 const Layout = ({ children }) => {
   const mode = useSelector((data) => data.mode);
-  
+
+
+
   return (
     <div className={`${mode ? "text-white" : "text-black"} `}>
       <Header />
