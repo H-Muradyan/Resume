@@ -5,9 +5,6 @@ import { validators } from "../shared/validators";
 import useWeather from "../redux/actions/useWeather";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 const WeatherForm = () => {
-  const [data, setData] = useState({
-    location: "",
-  });
   const { getCurrentWeather } = useWeather();
 
   useEffect(() => {
@@ -18,7 +15,7 @@ const WeatherForm = () => {
     getCurrentWeather(value.location);
   };
 
-  const { value, onChange, handleSubmit, errorMessage } = useForm(onSubmit, validators, data);
+  const { value, onChange, handleSubmit, errorMessage } = useForm(onSubmit, validators);
 
   return (
     <form className="h-16 flex space-x-5 items-start justify-center" onSubmit={handleSubmit}>

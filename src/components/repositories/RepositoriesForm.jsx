@@ -6,9 +6,6 @@ import useForm from "../shared/useForm";
 import useRepositories from "../redux/actions/useRepositories";
 
 const RepositoriesForm = () => {
-  const [data, setData] = useState({
-    user: "",
-  });
 
 
   const { getUserRepositories } = useRepositories();
@@ -21,7 +18,7 @@ const RepositoriesForm = () => {
     getUserRepositories(value.user)
   };
 
-  const { value, onChange, handleSubmit, errorMessage } = useForm(onSubmit, validators, data);
+  const { value, onChange, handleSubmit, errorMessage } = useForm(onSubmit, validators);
 
   return (
     <form className="h-16 flex space-x-5 items-start justify-center" onSubmit={handleSubmit}>

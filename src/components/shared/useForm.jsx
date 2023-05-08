@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const useForm = (onSubmit, validators, data) => {
-  const [value, setValue] = useState(data);
+const useForm = (onSubmit, validators) => {
+  const [value, setValue] = useState({});
   const [errorMessage, setErrorMessage] = useState({});
 
   const onChange = (e) => {
@@ -16,7 +16,7 @@ const useForm = (onSubmit, validators, data) => {
     setErrorMessage(validators(value));
     if (Object.values(validators(value)).length === 0) {
       onSubmit();
-      setValue(data);
+      setValue({});
     }
   };
 

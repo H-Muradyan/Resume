@@ -6,17 +6,12 @@ import useForm from "../shared/useForm";
 import { validators } from "../shared/validators";
 
 const ContactForm = () => {
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
 
   const onSubmit = () => {
     alert(JSON.stringify(value, undefined, 2))
   };
 
-  const { value, onChange, handleSubmit, errorMessage } = useForm(onSubmit, validators, data);
+  const { value, onChange, handleSubmit, errorMessage } = useForm(onSubmit, validators);
 
   return (
     <>
