@@ -8,9 +8,7 @@ export const validators = (value) => {
   const { regName, regEmail } = regs;
   const error = {};
   for (let key in value) {
-    if (!value[key] ) {
-      error[key] = "This field is required.";
-    } else if (!regEmail.test(value[key]) && key === "email") {
+    if (!regEmail.test(value[key]) && key === "email") {
       error[key] = "Please enter a valid email address.";
     } else if (!value[key].match(regName) && key === "name") {
       error[key] = "Name can not contain symbols and units.";

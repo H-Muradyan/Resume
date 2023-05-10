@@ -3,19 +3,18 @@ import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import { validators } from "../shared/validators";
 import TextInput from "../shared/Inputs/TextInput";
 import useForm from "../shared/useForm";
-import useRepositories from "../redux/actions/useRepositories";
+import { useDispatch } from "react-redux";
+import { getUserRepositories } from "../redux/features/repositoriesSlice";
 
 const RepositoriesForm = () => {
-
-
-  const { getUserRepositories } = useRepositories();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getUserRepositories("H-Muradyan");
+    dispatch(getUserRepositories("H-Muradyan"));
   }, []);
 
   const onSubmit = () => {
-    getUserRepositories(value.user)
+    dispatch(getUserRepositories(value.user));
   };
 
   const { value, onChange, handleSubmit, errorMessage } = useForm(onSubmit, validators);
@@ -30,7 +29,7 @@ const RepositoriesForm = () => {
         name="user"
         errorMessage={errorMessage}
       />
-      <button  aria-label="search user" type="submit">
+      <button aria-label="search user" type="submit">
         <PersonSearchIcon fontSize="large" />
       </button>
     </form>

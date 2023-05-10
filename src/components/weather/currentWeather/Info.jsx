@@ -1,10 +1,8 @@
 import React from "react";
 import { icons } from "../const";
-import useWeather from "../../redux/actions/useWeather";
+import { getDate } from "../../redux/features/weatherSlice";
 
 const Info = ({ weather }) => {
-  const { getDate } = useWeather();
-
   return (
     <div className="flex flex-col items-center px-4">
       <img

@@ -2,10 +2,10 @@ import { Modal } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import CloseIcon from "@mui/icons-material/Close";
+import { selectMode } from "../redux/features/modeSlice";
 
 const CustomModal = ({ handleClose, open, project }) => {
-  const mode = useSelector((data) => data.mode);
-
+  const mode = useSelector(selectMode);
 
   const { title, video } = project;
   return (

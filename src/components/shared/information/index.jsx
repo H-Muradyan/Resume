@@ -10,9 +10,10 @@ import {
 } from "@mui/lab";
 
 import { useSelector } from "react-redux";
+import { selectMode } from "../../redux/features/modeSlice";
 
 const Information = ({ data }) => {
-  const mode = useSelector((data) => data.mode);
+  const mode = useSelector(selectMode);
 
   const { content, oppositeContent } = data;
   return (

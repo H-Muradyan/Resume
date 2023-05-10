@@ -9,10 +9,11 @@ import {
   timelineItemClasses,
 } from "@mui/lab";
 import { useSelector } from "react-redux";
+import { selectMode } from "../../redux/features/modeSlice";
 
 const SequenceLine = ({ data }) => {
   const { name, position, from, till, description, icon } = data;
-  const mode = useSelector((data) => data.mode);
+  const mode = useSelector(selectMode);
 
   return (
     <Timeline

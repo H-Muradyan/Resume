@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { selectMode } from "../../redux/features/modeSlice";
 
 const TextInput = ({ type, placeholder, rows, name, value, onChange, errorMessage }) => {
-  const mode = useSelector((data) => data.mode);
+  const mode = useSelector(selectMode);
 
   return (
     <div>
@@ -16,6 +17,7 @@ const TextInput = ({ type, placeholder, rows, name, value, onChange, errorMessag
         placeholder={placeholder}
         rows={rows}
         name={name}
+        required
       />
       <div className="text-red-700">{errorMessage[name]}</div>
     </div>

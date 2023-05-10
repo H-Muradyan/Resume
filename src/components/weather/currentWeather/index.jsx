@@ -11,41 +11,45 @@ import windBlack from "../../../assets/icons/windBlack.png";
 import OtherInfo from "./OtherInfo";
 import Info from "./Info";
 import { bgImages } from "../const";
+import { selectMode } from "../../redux/features/modeSlice";
+import { selectWeather } from "../../redux/features/weatherSlice";
 
 const CurrentWeather = () => {
-  const weather = useSelector((data) => data.weather);
-  const mode = useSelector((data) => data.mode);
+  const weather = useSelector(selectWeather);
+  const mode = useSelector(selectMode);
 
   return (
     <div className="flex justify-center lg:justify-between space-y-10 flex-wrap">
-      {Object.keys(weather).length && (
+      {Object.keys(weather.weather).length ? (
         <>
           <img
             width="100%"
             height="100%"
             className="absolute top-0 -z-10 h-full rounded-xl"
-            src={bgImages[[weather.weather[0].icon]]}
+            src={bgImages[[weather.weather.weather[0].icon]]}
             alt="asd"
           />
-          <Info weather={weather} />
+          <Info weather={weather.weather} />
           <div className="flex flex-col justify-end space-y-10 px-4">
             <OtherInfo
               icon={mode ? humidityWhite : humidityBlack}
               title="Humidity"
-              value={`${weather.main.humidity} %`}
+              value={`${weather.weather.main.humidity} %`}
             />
             <OtherInfo
               icon={mode ? pressureWhite : pressureBlack}
               title="Air Pressure"
-              value={`${weather.main.pressure} PS`}
+              value={`${weather.weather.main.pressure} PS`}
             />
             <OtherInfo
               icon={mode ? windWhite : windBlack}
               title="Wind Speed"
-              value={`${weather.wind.speed} km/h`}
+              value={`${weather.weather.wind.speed} km/h`}
             />
           </div>
         </>
+      ) : (
+        ""
       )}
     </div>
   );

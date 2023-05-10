@@ -10,10 +10,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Repositories from "./pages/Repositories";
 
-
-
-
-
 const App = () => {
 
   return (

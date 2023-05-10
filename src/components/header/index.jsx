@@ -4,20 +4,19 @@ import { pages } from "./const";
 import MobileNavbar from "./MobileNavbar";
 import Social from "../shared/social";
 import MenuIcon from "@mui/icons-material/Menu";
-import useMode from "../redux/actions/useMode";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import useResizeObserver from "../hooks/useResizeObserver";
+import { change, selectMode } from "../redux/features/modeSlice";
 
 const Header = () => {
   const [showMobNav, setShowMobNav] = useState(null);
-  const headerRef = useRef()
+  const headerRef = useRef();
   const myRef = useRef();
   const widthSize = useResizeObserver(headerRef);
+  const dispatch = useDispatch();
 
-  const { changeMode } = useMode();
-
-  const mode = useSelector((data) => data.mode);
+  const mode = useSelector(selectMode);
 
   const openMobileNav = () => {
     setShowMobNav((prev) => !prev);
@@ -34,7 +33,10 @@ const Header = () => {
   }, [widthSize]);
 
   return (
-    <header ref={headerRef} className={`${mode ? "bg-darkMode" : "bg-lightMode"} duration-500 relative shadow-2xl`}>
+    <header
+      ref={headerRef}
+      className={`${mode ? "bg-darkMode" : "bg-lightMode"} duration-500 relative shadow-2xl`}
+    >
       <div className="flex items-center justify-between h-24 max-w-screen-2xl m-auto px-6 md:px-10 lg:px-20">
         {widthSize < 768 ? (
           <MenuIcon
@@ -53,7 +55,7 @@ const Header = () => {
           <LightModeIcon
             className={`${mode ? "hover:text-black" : "hover:text-white"} cursor-pointer`}
             fontSize="large"
-            onClick={changeMode}
+            onClick={() => dispatch(change())}
           />
         </div>
       </div>

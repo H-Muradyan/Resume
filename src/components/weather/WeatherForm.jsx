@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import useForm from "../shared/useForm";
 import TextInput from "../shared/Inputs/TextInput";
 import { validators } from "../shared/validators";
-import useWeather from "../redux/actions/useWeather";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
+import { useDispatch } from "react-redux";
+import { getCurrentWeather } from "../redux/features/weatherSlice";
+
 const WeatherForm = () => {
-  const { getCurrentWeather } = useWeather();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getCurrentWeather("Yerevan");
+    dispatch(getCurrentWeather("Yerevan"));
   }, []);
 
   const onSubmit = () => {
-    getCurrentWeather(value.location);
+    dispatch(getCurrentWeather(value.location));
   };
 
   const { value, onChange, handleSubmit, errorMessage } = useForm(onSubmit, validators);
