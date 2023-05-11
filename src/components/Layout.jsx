@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import Header from "./header";
 import Profile from "./profile";
 import { useSelector } from "react-redux";

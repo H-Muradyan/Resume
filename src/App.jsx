@@ -1,27 +1,70 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Layout from "./components/Layout";
-import { Route, Routes } from "react-router";
-import Projects from "./pages/Projects";
-import Skills from "./pages/Skills";
-import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import Weather from "./pages/Weather";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Repositories from "./pages/Repositories";
+import Loading from "./components/shared/Loading";
+import { Route, Routes } from "react-router";
+
+const Home = lazy(() => import("./pages/Home"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Skills = lazy(() => import("./pages/Skills"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Weather = lazy(() => import("./pages/Weather"));
+const Repositories = lazy(() => import("./pages/Repositories"));
 
 const App = () => {
-
   return (
     <Layout>
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/projects" element={<Projects />}></Route>
-        <Route path="/skills" element={<Skills />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/weather" element={<Weather />}></Route>
-        <Route path="/repositories" element={<Repositories />}></Route>
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Home />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/projects"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Projects />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/skills"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Skills />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/contact"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Contact />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/weather"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Weather />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/repositories"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Repositories />
+            </Suspense>
+          }
+        ></Route>
       </Routes>
     </Layout>
   );

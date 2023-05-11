@@ -15,6 +15,8 @@ const SequenceLine = ({ data }) => {
   const { name, position, from, till, description, icon } = data;
   const mode = useSelector(selectMode);
 
+  console.log("SequenceLine")
+
   return (
     <Timeline
       sx={{

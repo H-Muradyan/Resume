@@ -15,7 +15,6 @@ const Header = () => {
   const myRef = useRef();
   const widthSize = useResizeObserver(headerRef);
   const dispatch = useDispatch();
-
   const mode = useSelector(selectMode);
 
   const openMobileNav = () => {

@@ -6,7 +6,6 @@ import { selectMode } from "../redux/features/modeSlice";
 
 const CustomModal = ({ handleClose, open, project }) => {
   const mode = useSelector(selectMode);
-
   const { title, video } = project;
   return (
     <Modal
