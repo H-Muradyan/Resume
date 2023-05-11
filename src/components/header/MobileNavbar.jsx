@@ -6,8 +6,6 @@ import { selectMode } from "../redux/features/modeSlice";
 const MobileNavbar = ({ pages, showMobNav }) => {
   const mode = useSelector(selectMode);
 
-  console.log("MobileNav")
-
   return (
     <nav
       className={`${

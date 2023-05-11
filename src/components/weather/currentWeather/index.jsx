@@ -13,6 +13,7 @@ import Info from "./Info";
 import { bgImages } from "../const";
 import { selectMode } from "../../redux/features/modeSlice";
 import { selectWeather } from "../../redux/features/weatherSlice";
+import Loading from "../../shared/Loading";
 
 const CurrentWeather = () => {
   const weather = useSelector(selectWeather);
@@ -20,36 +21,38 @@ const CurrentWeather = () => {
 
   return (
     <div className="flex justify-center lg:justify-between space-y-10 flex-wrap">
-      {Object.keys(weather.weather).length ? (
-        <>
-          <img
-            width="100%"
-            height="100%"
-            className="absolute top-0 -z-10 h-full rounded-xl"
-            src={bgImages[[weather.weather.weather[0].icon]]}
-            alt="asd"
-          />
-          <Info weather={weather.weather} />
-          <div className="flex flex-col justify-end space-y-10 px-4">
-            <OtherInfo
-              icon={mode ? humidityWhite : humidityBlack}
-              title="Humidity"
-              value={`${weather.weather.main.humidity} %`}
-            />
-            <OtherInfo
-              icon={mode ? pressureWhite : pressureBlack}
-              title="Air Pressure"
-              value={`${weather.weather.main.pressure} PS`}
-            />
-            <OtherInfo
-              icon={mode ? windWhite : windBlack}
-              title="Wind Speed"
-              value={`${weather.weather.wind.speed} km/h`}
-            />
-          </div>
-        </>
+      {weather.loading ? (
+        <Loading />
       ) : (
-        ""
+        Object.keys(weather.weather).length && (
+          <>
+            <img
+              width="100%"
+              height="100%"
+              className="absolute top-0 -z-10 h-full rounded-xl"
+              src={bgImages[[weather.weather.weather[0].icon]]}
+              alt="asd"
+            />
+            <Info weather={weather.weather} />
+            <div className="flex flex-col justify-end space-y-10 px-4">
+              <OtherInfo
+                icon={mode ? humidityWhite : humidityBlack}
+                title="Humidity"
+                value={`${weather.weather.main.humidity} %`}
+              />
+              <OtherInfo
+                icon={mode ? pressureWhite : pressureBlack}
+                title="Air Pressure"
+                value={`${weather.weather.main.pressure} PS`}
+              />
+              <OtherInfo
+                icon={mode ? windWhite : windBlack}
+                title="Wind Speed"
+                value={`${weather.weather.wind.speed} km/h`}
+              />
+            </div>
+          </>
+        )
       )}
     </div>
   );

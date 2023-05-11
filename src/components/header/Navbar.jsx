@@ -4,8 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 const Navbar = ({ pages, mode }) => {
   const { pathname } = useLocation();
 
-  console.log("Nav")
-
   return (
     <nav className="space-x-5 lg:space-x-8">
       {pages.map(({ id, text, path }) => (
