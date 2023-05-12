@@ -23,18 +23,17 @@ export const getDate = (dt, timezone) => {
   return localDate;
 };
 
-
 const weatherSlice = createSlice({
   name: "weather",
   initialState,
-  extraReducers: {
-    [getCurrentWeather.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(getCurrentWeather.pending, (state) => {
       state.loading = true;
-    },
-    [getCurrentWeather.fulfilled]: (state, action) => {
+    });
+    builder.addCase(getCurrentWeather.fulfilled, (state, action) => {
       state.loading = false;
       state.weather = action.payload || state.weather;
-    },
+    });
   },
 });
 

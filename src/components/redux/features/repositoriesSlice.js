@@ -7,29 +7,26 @@ const initialState = {
   loading: false,
 };
 
-export const getUserRepositories = createAsyncThunk(
-  "api/userRepasitories",
-  async (user) => {
-    try {
-      const response = await userRepasitories(user)
-      return response.data
-    } catch (err) {
-      toast.error(err.response.data.message);
-    }
+export const getUserRepositories = createAsyncThunk("api/userRepasitories", async (user) => {
+  try {
+    const response = await userRepasitories(user);
+    return response.data;
+  } catch (err) {
+    toast.error(err.response.data.message);
   }
-);
+});
 
 const repositoriesSlice = createSlice({
   name: "repositories",
   initialState,
-  extraReducers: {
-    [getUserRepositories.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(getUserRepositories.pending, (state) => {
       state.loading = true;
-    },
-    [getUserRepositories.fulfilled]: (state, action) => {
+    });
+    builder.addCase(getUserRepositories.fulfilled, (state, action) => {
       state.loading = false;
       state.user = action.payload || state.user;
-    },
+    });
   },
 });
 
