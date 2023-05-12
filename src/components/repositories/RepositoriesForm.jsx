@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import { validators } from "../shared/validators";
 import TextInput from "../shared/Inputs/TextInput";
 import useForm from "../shared/useForm";
-import { useDispatch } from "react-redux";
-import { getUserRepositories } from "../redux/features/repositoriesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserRepositories, selectUser } from "../redux/features/repositoriesSlice";
 
 const RepositoriesForm = () => {
   const dispatch = useDispatch();
+  const repositories = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(getUserRepositories("H-Muradyan"));

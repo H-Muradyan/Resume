@@ -13,9 +13,7 @@ const Progress = ({ data }) => {
           />
         </div>
         <small>
-          <i className="ml-2">
-            {percent}
-          </i>
+          <i className="ml-2">{percent}</i>
         </small>
       </div>
     </div>

@@ -7,6 +7,7 @@ import { selectMode } from "../redux/features/modeSlice";
 
 const Profile = () => {
   const mode = useSelector(selectMode);
+
   return (
     <div
       className={`${mode ? "bg-darkMode" : "bg-lightMode"} duration-500 rounded-xl pt-8 shadow-2xl`}

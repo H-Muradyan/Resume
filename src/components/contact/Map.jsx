@@ -2,7 +2,6 @@ import React from "react";
 import { mapLocation } from "./const";
 
 const Map = () => {
-
   return (
     <>
       <h4 className="text-2xl mb-5 text-center lg:text-start font-bold">Contact Map</h4>

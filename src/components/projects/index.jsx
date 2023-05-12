@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import PageContainer from "../shared/pageContainer";
 import Card from "./Card";
 import { projects } from "./const";
@@ -12,7 +12,6 @@ const ProjectsPage = () => {
     setId(id);
     setOpen(true);
   };
-
   const handleClose = () => setOpen(false);
 
   return (
@@ -22,10 +21,13 @@ const ProjectsPage = () => {
         {projects.length &&
           projects.map((project) => (
             <React.Fragment key={project.id}>
-              <Card handleOpen={() => handleOpen(project.id)} project={project} />
+              <Card
+                handleOpen={useCallback(() => handleOpen(project.id), [project.id])}
+                project={useMemo(() => project, [project.id])}
+              />
             </React.Fragment>
           ))}
-        <CustomModal project={projects[id]} handleClose={handleClose} open={open} />
+        {open && <CustomModal project={projects[id]} handleClose={handleClose} open={open} />}
       </div>
     </PageContainer>
   );

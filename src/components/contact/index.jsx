@@ -6,8 +6,6 @@ import ContactInfo from "./ContactInfo";
 import Social from "../shared/social";
 
 const ContactPage = () => {
-
-  
   return (
     <PageContainer>
       <div className="px-4 w-full">

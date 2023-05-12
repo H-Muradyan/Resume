@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Card = ({ project, handleOpen }) => {
   const { title, image } = project;
@@ -15,4 +15,4 @@ const Card = ({ project, handleOpen }) => {
   );
 };
 
-export default Card;
+export default memo(Card);

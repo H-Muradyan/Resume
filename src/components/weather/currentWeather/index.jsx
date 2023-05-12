@@ -31,7 +31,7 @@ const CurrentWeather = () => {
               height="100%"
               className="absolute top-0 -z-10 h-full rounded-xl"
               src={bgImages[[weather.weather.weather[0].icon]]}
-              alt="asd"
+              alt={weather.weather.weather[0].description}
             />
             <Info weather={weather.weather} />
             <div className="flex flex-col justify-end space-y-10 px-4">

@@ -3,6 +3,7 @@ import { icons } from "../const";
 import { getDate } from "../../redux/features/weatherSlice";
 
 const Info = ({ weather }) => {
+
   return (
     <div className="flex flex-col items-center px-4">
       <img

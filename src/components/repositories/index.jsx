@@ -14,11 +14,11 @@ const RepositoriesPage = () => {
       <div className="px-4">
         <h4 className="text-2xl mb-5 text-center font-bold">Repositories</h4>
         <RepositoriesForm />
-        {repositories.loading ? (
+        {repositories?.loading ? (
           <Loading />
         ) : (
           <div className="grid gap-4 grid-cols-4 md:grid-cols-8 lg:grid-cols-12">
-            {repositories.user.length ? (
+            {repositories?.user.length ? (
               repositories.user.map((repository) => (
                 <RepositoryCard key={repository.id} repository={repository} />
               ))

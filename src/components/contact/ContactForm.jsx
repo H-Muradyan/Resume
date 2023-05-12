@@ -6,7 +6,6 @@ import useForm from "../shared/useForm";
 import { validators } from "../shared/validators";
 
 const ContactForm = () => {
-
   const onSubmit = () => {
     alert(JSON.stringify(value, undefined, 2))
   };
