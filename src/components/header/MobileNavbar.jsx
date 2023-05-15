@@ -2,8 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectMode } from "../redux/features/modeSlice";
+import { pages } from "./const";
 
-const MobileNavbar = ({ pages, showMobNav }) => {
+const MobileNavbar = ({ showMobNav }) => {
   const mode = useSelector(selectMode);
 
   return (

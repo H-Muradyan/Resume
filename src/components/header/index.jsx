@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
-import { pages } from "./const";
 import MobileNavbar from "./MobileNavbar";
 import Social from "../shared/social";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -47,7 +46,7 @@ const Header = () => {
             fontSize="large"
           />
         ) : (
-          <Navbar pages={pages} mode={mode} />
+          <Navbar />
         )}
         <div className="flex items-center space-x-3 md:space-x-5">
           <Social />
@@ -58,7 +57,7 @@ const Header = () => {
           />
         </div>
       </div>
-      {widthSize < 768 && <MobileNavbar pages={pages} showMobNav={showMobNav} />}
+      {widthSize < 768 && <MobileNavbar showMobNav={showMobNav} />}
     </header>
   );
 };

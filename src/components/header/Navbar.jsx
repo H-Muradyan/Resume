@@ -1,8 +1,13 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { pages } from "./const";
+import { useSelector } from "react-redux";
+import { selectMode } from "../redux/features/modeSlice";
 
-const Navbar = ({ pages, mode }) => {
+const Navbar = () => {
   const { pathname } = useLocation();
+  const mode = useSelector(selectMode);
+
 
   return (
     <nav className="space-x-5 lg:space-x-8">

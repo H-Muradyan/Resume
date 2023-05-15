@@ -8,7 +8,6 @@ import { getUserRepositories, selectUser } from "../redux/features/repositoriesS
 
 const RepositoriesForm = () => {
   const dispatch = useDispatch();
-  const repositories = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(getUserRepositories("H-Muradyan"));
